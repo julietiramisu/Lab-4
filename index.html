@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Ready with Me</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8" />
+    <title>Interactive Logic</title>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <div>
-      <p>event.clientX: <span id="client-x">0</span> px</p>
-      <p>event.clientY: <span id="client-y">0</span> px</p>
-    </div>
-
     <div id="color-box">
-      <p>event.offsetX: <span id="offset-x">0</span> px</p>
-      <p>event.offsetY: <span id="offset-y">0</span> px</p>
+      <!-- empty -->
     </div>
-    <script src="js/script.js" type="text/javascript"></script>
 
+    <button onclick="button1Clicked()">Button1</button>
+    <p id="button1-state">false</p>
+
+    <button onclick="button2Clicked()">Button2</button>
+    <p id="button2-state">false</p>
+
+    <script src="js/script.js" type="text/javascript"></script>
   </body>
 </html>

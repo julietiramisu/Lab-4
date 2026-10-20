@@ -1,29 +1,31 @@
-window.addEventListener("mousemove", function (event) {
-  let cX = event.clientX;
-  let cY = event.clientY;
+let button1 = false;
+let button2 = false;
 
-  document.getElementById("client-x").innerHTML = cX;
-  document.getElementById("client-y").innerHTML = cY;
+function button1Clicked() {
+  button1 = true;
+  document.getElementById("button1-state").innerHTML = button1;
 
-  if (cX > 400 && cX < 800) {
-    document.body.style.backgroundColor = "gray";
-  } else {
-    document.body.style.backgroundColor = "lightgray";
+  changeBoxColor();
+}
+
+function button2Clicked() {
+  button2 = true;
+  document.getElementById("button2-state").innerHTML = button2;
+
+  changeBoxColor();
+}
+
+function changeBoxColor() {
+  let box = document.getElementById("color-box");
+
+  // 'and' logical operator
+  if (button1 == true && button2 == true) {
+    box.style.backgroundColor = "red";
   }
-});
-
-let colorBox = document.getElementById("color-box");
-
-colorBox.addEventListener("mousemove", function (event) {
-  let oX = event.offsetX;
-  let oY = event.offsetY;
-
-  document.getElementById("offset-x").innerHTML = oX;
-  document.getElementById("offset-y").innerHTML = oY;
-
-  if (oX < 200) {
-    colorBox.style.backgroundColor = "red";
-  } else {
-    colorBox.style.backgroundColor = "yellow";
+  /*
+  // 'or' logical operator
+  if (button1 == true || button2 == true) {
+    box.style.backgroundColor = "blue";
   }
-});
+    */
+}

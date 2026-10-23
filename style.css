@@ -10,9 +10,25 @@ body {
   background-color: lightgray;
 }
 
-#color-box {
-  width: 200px;
-  height: 300px;
-  margin: 30px;
+.box {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 25%;
+  visibility: hidden;
+}
+
+#box-left {
+  background-color: cyan;
+  left: 0px;
+}
+
+#box-center {
+  background-color: magenta;
+  left: 400px;
+}
+
+#box-right {
   background-color: yellow;
+  left: 800px;
 }

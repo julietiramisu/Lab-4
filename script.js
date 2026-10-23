@@ -1,31 +1,30 @@
-let button1 = false;
-let button2 = false;
+window.addEventListener("mousemove", function (event) {
+  let cX = event.clientX;
+  let cY = event.clientY;
 
-function button1Clicked() {
-  button1 = true;
-  document.getElementById("button1-state").innerHTML = button1;
+  document.getElementById("client-x").innerHTML = cX;
+  document.getElementById("client-y").innerHTML = cY;
 
-  changeBoxColor();
-}
+  // show or hide the boxes based on mouse x position!
+  let boxL = document.getElementById("box-left");
+  let boxC = document.getElementById("box-center");
+  let boxR = document.getElementById("box-right");
 
-function button2Clicked() {
-  button2 = true;
-  document.getElementById("button2-state").innerHTML = button2;
-
-  changeBoxColor();
-}
-
-function changeBoxColor() {
-  let box = document.getElementById("color-box");
-
-  // 'and' logical operator
-  if (button1 == true && button2 == true) {
-    box.style.backgroundColor = "red";
+  if (cX < 400) {
+    boxL.style.visibility = "visible";
+    boxC.style.visibility = "hidden";
+    boxR.style.visibility = "hidden";
+  } else if (cX >= 400 && cX < 800) {
+    boxL.style.visibility = "hidden";
+    boxC.style.visibility = "visible";
+    boxR.style.visibility = "hidden";
+  } else if (cX >= 800 && cX < 1200) {
+    boxL.style.visibility = "hidden";
+    boxC.style.visibility = "hidden";
+    boxR.style.visibility = "visible";
+  } else {
+    boxL.style.visibility = "hidden";
+    boxC.style.visibility = "hidden";
+    boxR.style.visibility = "hidden";
   }
-  /*
-  // 'or' logical operator
-  if (button1 == true || button2 == true) {
-    box.style.backgroundColor = "blue";
-  }
-    */
-}
+});

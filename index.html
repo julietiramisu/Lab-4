@@ -2,24 +2,58 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Interactive Logic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Which Cake Are You?</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>
-      <p>event.clientX: <span id="client-x">0</span> px</p>
-      <p>event.clientY: <span id="client-y">0</span> px</p>
-    </div>
+    <main class="page-shell">
+      <header class="page-header">
+        <p class="eyebrow">A bit of sweetness and a lot of personality ♡</p>
+        <h1>Which Cake Are <span>You?</span></h1>
+        <p class="instruction">Move your mouse and discover your sweet side.</p>
+      </header>
 
-    <div id="box-left" class="box">
-      <!-- empty -->
-    </div>
-    <div id="box-center" class="box">
-      <!-- empty -->
-    </div>
-    <div id="box-right" class="box">
-      <!-- empty -->
-    </div>
+      <section class="cake-gallery" aria-label="Choose your cake personality">
+        <article id="box-left" class="cake-card" data-theme="strawberry" tabindex="0">
+          <div class="photo-frame">
+            <img src="images/strawberry.jpg" alt="A slice of strawberry shortcake" />
+          </div>
+          <h2>Strawberry Shortcake</h2>
+          <div class="cake-description">
+            <h3>The Romantic</h3>
+            <p>You are soft-hearted, sweet, and a dreamy person.</p>
+          </div>
+        </article>
+
+        <article id="box-center" class="cake-card" data-theme="matcha" tabindex="0">
+          <div class="photo-frame">
+            <img src="images/matcha.jpg" alt="A slice of matcha crepe cake" />
+          </div>
+          <h2>Matcha Crepe</h2>
+          <div class="cake-description">
+            <h3>The Grounded One</h3>
+            <p>You are a calm, intentional, and an ambitious person.</p>
+          </div>
+        </article>
+
+        <article id="box-right" class="cake-card" data-theme="tiramisu" tabindex="0">
+          <div class="photo-frame">
+            <img src="images/tiramisu.jpg" alt="A slice of tiramisu" />
+          </div>
+          <h2>Tiramisu</h2>
+          <div class="cake-description">
+            <h3>The Charming One</h3>
+            <p>You are cool, confident, and a bit indulgent.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="coordinate-readout" aria-label="Mouse position">
+      <span>X <span id="client-x">0</span></span>
+      <span>Y <span id="client-y">0</span></span>
+    </aside>
     <script src="script.js" type="text/javascript"></script>
   </body>
 </html>

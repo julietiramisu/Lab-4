@@ -1,30 +1,25 @@
-window.addEventListener("mousemove", function (event) {
-  let cX = event.clientX;
-  let cY = event.clientY;
+function setActiveTheme(target) {
+  let card = target.closest(".cake-card");
 
-  document.getElementById("client-x").innerHTML = cX;
-  document.getElementById("client-y").innerHTML = cY;
-
-  // show or hide the boxes based on mouse x position!
-  let boxL = document.getElementById("box-left");
-  let boxC = document.getElementById("box-center");
-  let boxR = document.getElementById("box-right");
-
-  if (cX < 400) {
-    boxL.style.visibility = "visible";
-    boxC.style.visibility = "hidden";
-    boxR.style.visibility = "hidden";
-  } else if (cX >= 400 && cX < 800) {
-    boxL.style.visibility = "hidden";
-    boxC.style.visibility = "visible";
-    boxR.style.visibility = "hidden";
-  } else if (cX >= 800 && cX < 1200) {
-    boxL.style.visibility = "hidden";
-    boxC.style.visibility = "hidden";
-    boxR.style.visibility = "visible";
+  if (card) {
+    document.body.dataset.theme = card.dataset.theme;
   } else {
-    boxL.style.visibility = "hidden";
-    boxC.style.visibility = "hidden";
-    boxR.style.visibility = "hidden";
+    delete document.body.dataset.theme;
+  }
+}
+
+window.addEventListener("mousemove", function (event) {
+  document.getElementById("client-x").textContent = event.clientX;
+  document.getElementById("client-y").textContent = event.clientY;
+  setActiveTheme(event.target);
+});
+
+window.addEventListener("focusin", function (event) {
+  setActiveTheme(event.target);
+});
+
+window.addEventListener("focusout", function (event) {
+  if (!event.relatedTarget || !event.relatedTarget.closest(".cake-card")) {
+    delete document.body.dataset.theme;
   }
 });
